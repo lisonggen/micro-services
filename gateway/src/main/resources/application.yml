@@ -26,6 +26,12 @@ spring:
             - Path=/goods/**
           filters:
             - StripPrefix=1
+        - id: order
+          uri: lb://order-services
+          predicates:
+            - Path=/order/**
+          filters:
+            - StripPrefix=1
 
 logging:
   level:

@@ -21,6 +21,8 @@
     <modules>
         <module>gateway</module>
         <module>user-services</module>
+        <module>goods-services</module>
+        <module>order-services</module>
     </modules>
 
     <dependencyManagement>
