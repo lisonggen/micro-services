@@ -20,6 +20,12 @@ spring:
             - Path=/user/**
           filters:
             - StripPrefix=1
+        - id: goods
+          uri: lb://goods-services
+          predicates:
+            - Path=/goods/**
+          filters:
+            - StripPrefix=1
 
 logging:
   level:
