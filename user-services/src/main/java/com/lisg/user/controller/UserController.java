@@ -1,10 +1,13 @@
 package com.lisg.user.controller;
 
+import com.lisg.common.util.IdGeneraator;
 import com.lisg.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 import model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.IdGenerator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 
 @Tag(name = "用户管理", description = "提供用户相关的 API 接口")
+@Slf4j
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
@@ -28,6 +32,9 @@ public class UserController {
     @Operation(summary = "测试接口", description = "用于测试的接口")
     @GetMapping("/hello")
     public String hello() {
+        log.info("user id: " + IdGeneraator.generateUserId());
+        log.info("product id: " + IdGeneraator.generateProductId());
+        log.info("order id: " + IdGeneraator.generateOrderId());
         return "Hello World!";
     }
 
