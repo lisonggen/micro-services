@@ -24,6 +24,10 @@ public class GoodsController {
 
     @GetMapping("/id/{gid}")
     public Spu getGoodsById(@PathVariable String gid) {
+        //抛出异常
+        if (true) {
+            throw new RuntimeException("模拟异常");
+        }
         return goodsService.getGoodsById(gid);
     }
 }
