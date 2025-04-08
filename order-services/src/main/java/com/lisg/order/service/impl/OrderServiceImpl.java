@@ -1,10 +1,20 @@
 package com.lisg.order.service.impl;
 
+import com.lisg.goods.dto.GoodsDTO;
+import com.lisg.goods.feign.GoodsFeign;
+import com.lisg.order.mapper.OrderItemMapper;
 import com.lisg.order.mapper.OrderMapper;
+import com.lisg.order.model.dto.OrderDTO;
+import com.lisg.order.model.dto.OrderItemDTO;
 import com.lisg.order.model.entity.Order;
+import com.lisg.order.model.entity.OrderItem;
 import com.lisg.order.service.OrderService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @program: micro-services
@@ -19,9 +29,29 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderMapper orderMapper;
 
+    @Autowired
+    private OrderItemMapper orderItemMapper;
+
+    @Autowired
+    private GoodsFeign goodsFeign;
+
     @Override
-    public Order getOrderById(String orderId) {
-        return orderMapper.selectById(orderId);
+    public OrderDTO getOrderById(String orderId) {
+        Order order = orderMapper.selectById(orderId);
+        List<OrderItemDTO> orderItemDTOS = new ArrayList<>();
+        List<OrderItem> orderItems = orderItemMapper.selectByOrderId(orderId);
+        orderItems.forEach(orderItem -> {
+            OrderItemDTO orderItemDTO = new OrderItemDTO();
+            GoodsDTO goodsDTO = goodsFeign.getGoodsById(orderItem.getSpuId());
+            BeanUtils.copyProperties(orderItem, orderItemDTO);
+            orderItemDTO.setGoods(goodsDTO);
+            orderItemDTOS.add(orderItemDTO);
+        });
+
+        OrderDTO orderDTO = new OrderDTO();
+        orderDTO.setOrder(order);
+        orderDTO.setOrderItemDTOS(orderItemDTOS);
+        return orderDTO;
     }
 
 }

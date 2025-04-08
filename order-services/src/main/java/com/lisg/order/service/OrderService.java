@@ -1,8 +1,8 @@
 package com.lisg.order.service;
 
-import com.lisg.order.model.entity.Order;
+import com.lisg.order.model.dto.OrderDTO;
 
 public interface OrderService {
 
-    Order getOrderById(String orderId);
+    OrderDTO getOrderById(String orderId);
 }

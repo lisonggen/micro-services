@@ -1,6 +1,6 @@
 package com.lisg.order.controller;
 
-import com.lisg.order.model.entity.Order;
+import com.lisg.order.model.dto.OrderDTO;
 import com.lisg.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping("/id/{orderId}")
-    public Order getOrderById(@PathVariable String orderId){
+    public OrderDTO getOrderById(@PathVariable String orderId){
         return orderService.getOrderById(orderId);
     }
 
