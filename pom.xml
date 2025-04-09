@@ -25,6 +25,7 @@
         <module>goods-services</module>
         <module>goods-api</module>
         <module>order-services</module>
+        <module>search-services</module>
     </modules>
 
     <dependencyManagement>

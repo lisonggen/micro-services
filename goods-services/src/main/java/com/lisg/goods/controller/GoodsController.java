@@ -1,5 +1,6 @@
 package com.lisg.goods.controller;
 
+import com.lisg.goods.model.entity.Sku;
 import com.lisg.goods.model.entity.Spu;
 import com.lisg.goods.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,10 @@ public class GoodsController {
     @GetMapping("/id/{gid}")
     public Spu getGoodsById(@PathVariable String gid) {
         return goodsService.getGoodsById(gid);
+    }
+
+    @GetMapping("/sku/{id}")
+    public Sku getSkuById(@PathVariable String id) {
+        return goodsService.getSkuById(id);
     }
 }

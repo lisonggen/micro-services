@@ -1,6 +1,8 @@
 package com.lisg.goods.service.impl;
 
 import com.lisg.goods.mapper.GoodsMapper;
+import com.lisg.goods.mapper.SkuMapper;
+import com.lisg.goods.model.entity.Sku;
 import com.lisg.goods.model.entity.Spu;
 import com.lisg.goods.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +21,17 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private GoodsMapper goodsMapper;
 
+    @Autowired
+    private SkuMapper skuMapper;
+
     @Override
     public Spu getGoodsById(String gid) {
         return goodsMapper.selectById(gid);
+    }
+
+    @Override
+    public Sku getSkuById(String sid) {
+        return skuMapper.selectById(sid);
     }
 
 }

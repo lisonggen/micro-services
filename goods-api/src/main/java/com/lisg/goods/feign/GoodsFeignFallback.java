@@ -1,6 +1,7 @@
 package com.lisg.goods.feign;
 
 import com.lisg.goods.dto.GoodsDTO;
+import com.lisg.goods.dto.SkuDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +24,11 @@ public class GoodsFeignFallback implements GoodsFeign{
         goodsDTO.setName("默认商品");
         goodsDTO.setCaption("降级商品");
         return goodsDTO;
+    }
+
+    @Override
+    public SkuDTO getSkuById(String id) {
+        return null;
     }
 
 }
