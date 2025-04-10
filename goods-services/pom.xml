@@ -63,11 +63,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.lisg</groupId>
             <artifactId>goods-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>

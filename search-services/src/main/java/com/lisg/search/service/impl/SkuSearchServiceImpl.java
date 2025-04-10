@@ -17,6 +17,7 @@ import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @program: micro-services
@@ -45,8 +46,8 @@ public class SkuSearchServiceImpl implements SkuSearchService {
                 .withPageable(PageRequest.of(pageNo, pageSize)).build();
 
         SearchHits<SkuDocument> searchHits = elasticsearchOperations.search(nativeQuery, SkuDocument.class);
-//        List<SkuDocument> spuDocuments = searchHits.stream().map(SearchHit::getContent).toList();
-        return null;
+        List<SkuDocument> spuDocuments = searchHits.stream().map(SearchHit::getContent).collect(Collectors.toList());
+        return spuDocuments;
     }
 
     @Override
