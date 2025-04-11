@@ -2,6 +2,7 @@ package model.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
  **/
 
 @Data
+@NoArgsConstructor
 @TableName("user")
 public class User implements Serializable {
 
@@ -35,4 +37,17 @@ public class User implements Serializable {
 
     @TableField(fill = FieldFill.INSERT_UPDATE)  // 自动填充更新时间
     private LocalDateTime updateTime;
+
+    public User(String uid, String username, String role) {
+        this.uid = uid;
+        this.username = username;
+        this.role = role;
+    }
+
+    public User(String username, String password, String phone, String email) {
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+        this.email = email;
+    }
 }

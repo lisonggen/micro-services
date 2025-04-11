@@ -7,7 +7,9 @@ import com.lisg.common.util.IdGeneraator;
 import com.lisg.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import model.dto.UserRegisterDTO;
 import model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.IdGenerator;
@@ -46,9 +48,16 @@ public class UserController {
 
     @Operation(summary = "用户注册", description = "注册接口")
     @PostMapping("/register")
-    public ResponseResult register(@RequestBody User user) {
+    public ResponseResult register(@RequestBody UserRegisterDTO user) {
         User register = userService.register(user);
         return ResponseResult.success(register);
+    }
+
+    @Operation(summary = "用户登录", description = "登录接口")
+    @PostMapping("/login")
+    public ResponseResult login(HttpServletResponse response, @RequestBody User user) {
+        String result = userService.login(response, user);
+        return ResponseResult.success(result);
     }
 
 
