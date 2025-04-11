@@ -1,5 +1,8 @@
 package com.lisg.user.controller;
 
+import com.lisg.common.response.BizException;
+import com.lisg.common.response.ResponseEnum;
+import com.lisg.common.response.ResponseResult;
 import com.lisg.common.util.IdGeneraator;
 import com.lisg.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -8,10 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.IdGenerator;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @program: micro-services
@@ -42,6 +42,13 @@ public class UserController {
     @GetMapping("/id/{uid}")
     public User getById(@PathVariable Long uid) {
         return userService.getUserById(uid);
+    }
+
+    @Operation(summary = "用户注册", description = "注册接口")
+    @PostMapping("/register")
+    public ResponseResult register(@RequestBody User user) {
+        User register = userService.register(user);
+        return ResponseResult.success(register);
     }
 
 

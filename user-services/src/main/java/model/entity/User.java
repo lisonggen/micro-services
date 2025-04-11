@@ -19,8 +19,8 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "uid", type = IdType.AUTO)  // 主键自增
-    private Long uid;
+    @TableId(value = "uid")  // 主键自增
+    private String uid;
 
     private String username;
     private String password;

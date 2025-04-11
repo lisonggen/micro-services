@@ -47,4 +47,30 @@ public class ResponseResult<T> implements Serializable {
 
         return responseResult;
     }
+
+    //    自定义参数,链式编程
+    public ResponseResult data(T data) {
+        this.setData(data);
+        return this;
+    }
+
+    public ResponseResult code(int code) {
+        this.setCode(code);
+        return this;
+    }
+
+    public ResponseResult msg(String msg) {
+        this.setMsg(msg);
+        return this;
+    }
+
+    //    自定义返回数据
+    @Override
+    public String toString() {
+        return "RestResult{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }
