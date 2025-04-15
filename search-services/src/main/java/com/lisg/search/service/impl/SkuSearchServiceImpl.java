@@ -1,7 +1,6 @@
 package com.lisg.search.service.impl;
 
 import co.elastic.clients.elasticsearch._types.aggregations.Aggregation;
-import com.lisg.goods.dto.GoodsDTO;
 import com.lisg.goods.dto.SkuDTO;
 import com.lisg.goods.feign.GoodsFeign;
 import com.lisg.search.entity.elasticsearch.SkuDocument;

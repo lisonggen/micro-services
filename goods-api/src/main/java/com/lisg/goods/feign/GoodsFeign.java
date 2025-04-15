@@ -1,6 +1,6 @@
 package com.lisg.goods.feign;
 
-import com.lisg.goods.dto.GoodsDTO;
+import com.lisg.goods.dto.SpuDTO;
 import com.lisg.goods.dto.SkuDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface GoodsFeign {
 
     @GetMapping("/api/goods/id/{id}")
-    GoodsDTO getGoodsById(@PathVariable("id") String id);
+    SpuDTO getGoodsById(@PathVariable("id") String id);
 
     @GetMapping("/api/goods/sku/{id}")
     SkuDTO getSkuById(@PathVariable("id") String id);

@@ -1,6 +1,6 @@
 package com.lisg.order.service.impl;
 
-import com.lisg.goods.dto.GoodsDTO;
+import com.lisg.goods.dto.SpuDTO;
 import com.lisg.goods.feign.GoodsFeign;
 import com.lisg.order.mapper.OrderItemMapper;
 import com.lisg.order.mapper.OrderMapper;
@@ -42,7 +42,7 @@ public class OrderServiceImpl implements OrderService {
         List<OrderItem> orderItems = orderItemMapper.selectByOrderId(orderId);
         orderItems.forEach(orderItem -> {
             OrderItemDTO orderItemDTO = new OrderItemDTO();
-            GoodsDTO goodsDTO = goodsFeign.getGoodsById(orderItem.getSpuId());
+            SpuDTO goodsDTO = goodsFeign.getGoodsById(orderItem.getSpuId());
             BeanUtils.copyProperties(orderItem, orderItemDTO);
             orderItemDTO.setGoods(goodsDTO);
             orderItemDTOS.add(orderItemDTO);

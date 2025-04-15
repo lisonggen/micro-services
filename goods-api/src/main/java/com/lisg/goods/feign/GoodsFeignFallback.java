@@ -1,6 +1,6 @@
 package com.lisg.goods.feign;
 
-import com.lisg.goods.dto.GoodsDTO;
+import com.lisg.goods.dto.SpuDTO;
 import com.lisg.goods.dto.SkuDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -17,9 +17,9 @@ import org.springframework.stereotype.Component;
 public class GoodsFeignFallback implements GoodsFeign{
 
     @Override
-    public GoodsDTO getGoodsById(String id) {
+    public SpuDTO getGoodsById(String id) {
         log.info("-------------------------------调用商品服务失败");
-        GoodsDTO goodsDTO = new GoodsDTO();
+        SpuDTO goodsDTO = new SpuDTO();
         goodsDTO.setId("0");
         goodsDTO.setName("默认商品");
         goodsDTO.setCaption("降级商品");

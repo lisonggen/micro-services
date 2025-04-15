@@ -1,5 +1,6 @@
 package com.lisg.goods.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lisg.goods.mapper.SpuMapper;
 import com.lisg.goods.mapper.SkuMapper;
 import com.lisg.goods.model.entity.Sku;
@@ -34,6 +35,13 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public Sku getSkuById(String sid) {
         return skuMapper.selectById(sid);
+    }
+
+    @Override
+    public List<Sku> getSkuBySpuId(String spuId) {
+        QueryWrapper<Sku> queryWrapper = new QueryWrapper<Sku>().eq("spu_id", spuId);
+        List<Sku> skus = skuMapper.selectList(queryWrapper);
+        return skus;
     }
 
     @Override

@@ -11,5 +11,7 @@ public interface GoodsService {
 
     Sku getSkuById(String sid);
 
+    List<Sku> getSkuBySpuId(String spuId);
+
     List<Spu> getGoodsList(String keyword, Integer pageNo, Integer pageSize);
 }

@@ -10,7 +10,7 @@ import lombok.Data;
  **/
 
 @Data
-public class GoodsDTO {
+public class SpuDTO {
 
     private String id;
     private String name;

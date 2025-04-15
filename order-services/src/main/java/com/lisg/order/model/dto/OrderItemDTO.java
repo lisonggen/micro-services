@@ -1,6 +1,6 @@
 package com.lisg.order.model.dto;
 
-import com.lisg.goods.dto.GoodsDTO;
+import com.lisg.goods.dto.SpuDTO;
 import lombok.Data;
 
 /**
@@ -34,5 +34,5 @@ public class OrderItemDTO {
     private Integer postFee;
     private String isReturn;
 
-    private GoodsDTO goods;
+    private SpuDTO goods;
 }

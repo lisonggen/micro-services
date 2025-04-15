@@ -1,6 +1,7 @@
 package com.lisg.goods.controller;
 
 import com.lisg.common.response.ResponseResult;
+import com.lisg.goods.model.GoodsDTO;
 import com.lisg.goods.model.entity.Sku;
 import com.lisg.goods.model.entity.Spu;
 import com.lisg.goods.service.GoodsService;
@@ -24,13 +25,16 @@ public class GoodsController {
     private GoodsService goodsService;
 
     @GetMapping("/id/{gid}")
-    public Spu getGoodsById(@PathVariable String gid) {
-        return goodsService.getGoodsById(gid);
+    public ResponseResult getGoodsById(@PathVariable String gid) {
+        Spu spu = goodsService.getGoodsById(gid);
+        List<Sku> skus = goodsService.getSkuBySpuId(gid);
+        return ResponseResult.success(new GoodsDTO(spu, skus));
     }
 
     @GetMapping("/sku/{id}")
-    public Sku getSkuById(@PathVariable String id) {
-        return goodsService.getSkuById(id);
+    public ResponseResult getSkuById(@PathVariable String id) {
+        Sku sku = goodsService.getSkuById(id);
+        return ResponseResult.success(sku);
     }
 
     @GetMapping("/list")
