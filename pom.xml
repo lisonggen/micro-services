@@ -26,6 +26,7 @@
         <module>goods-api</module>
         <module>order-services</module>
         <module>search-services</module>
+        <module>cart-services</module>
     </modules>
 
     <dependencyManagement>
