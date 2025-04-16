@@ -7,6 +7,7 @@ import com.lisg.goods.feign.GoodsFeign;
 import com.list.cart.mapper.CartItemMapper;
 import com.list.cart.model.entity.CartItem;
 import com.list.cart.service.CartService;
+import com.list.cart.util.TokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,11 +31,11 @@ public class CartServiceImpl implements CartService {
     private GoodsFeign goodsFeign;
 
     @Override
-    public void addToCart(String skuId, String userId) {
+    public void addToCart(String skuId) {
         SkuDTO skuDTO = goodsFeign.getSkuById(skuId).getData();
         CartItem cartItem = new CartItem();
         BeanUtil.copyProperties(skuDTO, cartItem);
-        cartItem.setUserId(userId);
+        cartItem.setUserId(TokenUtil.getUserInfo().get("uid"));
         cartItem.setSkuId(skuId);
         cartItem.setSkuName(skuDTO.getName());
         cartItem.setQuantity(1);
@@ -47,7 +48,7 @@ public class CartServiceImpl implements CartService {
     @Override
     public List<CartItem> getCartItems(String userId) {
         QueryWrapper<CartItem> cartItemQueryWrapper = new QueryWrapper<>();
-        cartItemQueryWrapper.eq("user_id", userId);
+        cartItemQueryWrapper.eq("user_id", TokenUtil.getUserInfo().get("uid"));
         return cartItemMapper.selectList(cartItemQueryWrapper);
     }
 }

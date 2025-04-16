@@ -24,7 +24,7 @@ public class CartController {
 
     @PostMapping("/add/{skuId}")
     public ResponseResult addCart(@PathVariable String skuId) {
-        cartService.addToCart(skuId, "1");
+        cartService.addToCart(skuId);
         return ResponseResult.success();
     }
 

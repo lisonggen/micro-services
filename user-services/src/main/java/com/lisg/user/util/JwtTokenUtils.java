@@ -21,7 +21,7 @@ public class JwtTokenUtils {
     // 过期时间
     private static final int EXPIRE_TIME = 24 * 60 * 60 * 1000;
     // 加密的密钥
-    private static final String SECRET_KEY = "micro-services";
+    private static final String SECRET_KEY = "v9zKt!Q@C$kV!bY8fTz3Nd7LuPmX1aG4";
 
     public static String sign(User user) {
         Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);
