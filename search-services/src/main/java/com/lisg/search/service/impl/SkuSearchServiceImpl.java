@@ -51,7 +51,7 @@ public class SkuSearchServiceImpl implements SkuSearchService {
 
     @Override
     public void importSkuById(String id) {
-        SkuDTO skuDTO = goodsFeign.getSkuById(id);
+        SkuDTO skuDTO = goodsFeign.getSkuById(id).getData();
         SkuDocument skuDocument = new SkuDocument();
         BeanUtils.copyProperties(skuDTO, skuDocument);
         spuRepository.save(skuDocument);

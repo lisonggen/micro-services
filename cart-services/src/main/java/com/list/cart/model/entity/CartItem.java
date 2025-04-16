@@ -1,9 +1,6 @@
 package com.list.cart.model.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -19,16 +16,13 @@ import java.time.LocalDateTime;
 @TableName("cart_item")
 public class CartItem {
 
-    @TableId
-    private String id;
-
-    private String cartId;
-
+    @TableId(value = "user_id", type = IdType.INPUT)
     private String userId;
 
-    private String spuId;
-
+    @TableField(value = "sku_id")
     private String skuId;
+
+    private String spuId;
 
     private String skuName;
 
@@ -38,11 +32,11 @@ public class CartItem {
 
     private Integer quantity;
 
+    private Integer price;
+
     private Integer selected;
 
-    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 }

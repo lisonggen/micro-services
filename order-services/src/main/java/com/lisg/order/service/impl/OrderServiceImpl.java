@@ -42,7 +42,7 @@ public class OrderServiceImpl implements OrderService {
         List<OrderItem> orderItems = orderItemMapper.selectByOrderId(orderId);
         orderItems.forEach(orderItem -> {
             OrderItemDTO orderItemDTO = new OrderItemDTO();
-            SpuDTO goodsDTO = goodsFeign.getGoodsById(orderItem.getSpuId());
+            SpuDTO goodsDTO = goodsFeign.getGoodsById(orderItem.getSpuId()).getData();
             BeanUtils.copyProperties(orderItem, orderItemDTO);
             orderItemDTO.setGoods(goodsDTO);
             orderItemDTOS.add(orderItemDTO);

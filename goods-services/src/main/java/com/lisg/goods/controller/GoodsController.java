@@ -1,6 +1,8 @@
 package com.lisg.goods.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.lisg.common.response.ResponseResult;
+import com.lisg.goods.dto.SkuDTO;
 import com.lisg.goods.model.GoodsDTO;
 import com.lisg.goods.model.entity.Sku;
 import com.lisg.goods.model.entity.Spu;
@@ -32,9 +34,11 @@ public class GoodsController {
     }
 
     @GetMapping("/sku/{id}")
-    public ResponseResult getSkuById(@PathVariable String id) {
+    public ResponseResult<SkuDTO> getSkuById(@PathVariable String id) {
         Sku sku = goodsService.getSkuById(id);
-        return ResponseResult.success(sku);
+        SkuDTO skuDTO = new SkuDTO();
+        BeanUtil.copyProperties(sku, skuDTO);
+        return ResponseResult.success(skuDTO);
     }
 
     @GetMapping("/list")
