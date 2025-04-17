@@ -1,7 +1,5 @@
 package com.lisg.user.controller;
 
-import com.lisg.common.response.BizException;
-import com.lisg.common.response.ResponseEnum;
 import com.lisg.common.response.ResponseResult;
 import com.lisg.common.util.IdGeneraator;
 import com.lisg.user.service.UserService;
@@ -9,10 +7,9 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import model.dto.UserRegisterDTO;
-import model.entity.User;
+import com.lisg.user.model.dto.UserRegisterDTO;
+import com.lisg.user.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.IdGenerator;
 import org.springframework.web.bind.annotation.*;
 
 /**

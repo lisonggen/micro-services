@@ -1,8 +1,8 @@
 package com.lisg.user.service;
 
 import jakarta.servlet.http.HttpServletResponse;
-import model.dto.UserRegisterDTO;
-import model.entity.User;
+import com.lisg.user.model.dto.UserRegisterDTO;
+import com.lisg.user.model.entity.User;
 
 public interface UserService {
 

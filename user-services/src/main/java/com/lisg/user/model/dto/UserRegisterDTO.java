@@ -1,4 +1,4 @@
-package model.dto;
+package com.lisg.user.model.dto;
 
 import lombok.Data;
 

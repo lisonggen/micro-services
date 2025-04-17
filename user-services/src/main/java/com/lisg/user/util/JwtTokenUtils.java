@@ -5,7 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import model.entity.User;
+import com.lisg.user.model.entity.User;
 
 import java.util.Date;
 import java.util.HashMap;
