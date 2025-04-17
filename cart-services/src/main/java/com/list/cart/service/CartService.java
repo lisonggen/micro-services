@@ -9,4 +9,6 @@ public interface CartService {
     void addToCart(String productId);
 
     List<CartItem> getCartItems(String userId);
+
+    int getCartCount();
 }

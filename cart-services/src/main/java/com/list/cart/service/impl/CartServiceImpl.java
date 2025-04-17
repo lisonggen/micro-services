@@ -51,4 +51,11 @@ public class CartServiceImpl implements CartService {
         cartItemQueryWrapper.eq("user_id", TokenUtil.getUserInfo().get("uid"));
         return cartItemMapper.selectList(cartItemQueryWrapper);
     }
+
+    @Override
+    public int getCartCount() {
+        QueryWrapper<CartItem> cartItemQueryWrapper = new QueryWrapper<>();
+        cartItemQueryWrapper.eq("user_id", TokenUtil.getUserInfo().get("uid"));
+        return cartItemMapper.selectCount(cartItemQueryWrapper).intValue();
+    }
 }

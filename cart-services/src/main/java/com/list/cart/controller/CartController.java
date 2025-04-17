@@ -33,4 +33,10 @@ public class CartController {
         List<CartItem> cartItems = cartService.getCartItems("1");
         return ResponseResult.success(cartItems);
     }
+
+    @GetMapping("/count")
+    public ResponseResult countCart() {
+        int count = cartService.getCartCount();
+        return ResponseResult.success(count);
+    }
 }
