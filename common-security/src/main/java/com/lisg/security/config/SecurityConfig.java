@@ -1,4 +1,4 @@
-package com.list.cart.config;
+package com.lisg.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

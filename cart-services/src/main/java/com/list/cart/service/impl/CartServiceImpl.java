@@ -4,10 +4,10 @@ import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lisg.goods.dto.SkuDTO;
 import com.lisg.goods.feign.GoodsFeign;
+import com.lisg.security.util.TokenUtil;
 import com.list.cart.mapper.CartItemMapper;
 import com.list.cart.model.entity.CartItem;
 import com.list.cart.service.CartService;
-import com.list.cart.util.TokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

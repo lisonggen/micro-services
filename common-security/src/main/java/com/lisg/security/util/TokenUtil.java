@@ -1,4 +1,4 @@
-package com.list.cart.util;
+package com.lisg.security.util;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
